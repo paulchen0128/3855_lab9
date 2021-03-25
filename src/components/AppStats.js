@@ -8,7 +8,7 @@ export default function AppStats() {
 
 	const getStats = () => {
 	
-        fetch(`http://<Cloud DNS>:8100/stats`)
+        fetch(`http://paulchen128.eastus.cloudapp.azure.com:8100/stats`)
             .then(res => res.json())
             .then((result)=>{
 				console.log("Received Stats")
@@ -35,26 +35,22 @@ export default function AppStats() {
                 <table className={"StatsTable"}>
 					<tbody>
 						<tr>
-							<th>Blood Pressure</th>
-							<th>Heart Rate</th>
+							<th>Menus</th>
+							<th>Orders</th>
 						</tr>
 						<tr>
-							<td># BP: {stats['num_bp_readings']}</td>
-							<td># HR: {stats['num_hr_readings']}</td>
+							<td># Menus: {stats["num_menus"]}</td>
+							<td># Orders: {stats["num_orders"]}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max BP Systolic: {stats['max_bp_sys_reading']}</td>
+							<td colSpan="2">Max cost of order: {stats["max_cost"]}</td>
 						</tr>
 						<tr>
-							<td colspan="2">Max BR Diastolic: {stats['max_bp_dia_reading']}</td>
-						</tr>
-						<tr>
-							<td colspan="2">Max HR: {stats['max_bp_sys_reading']}</td>
+							<td colSpan="2">Min cost of order: {stats["min_cost"]}</td>
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {stats['last_updated']}</h3>
-
+                <h3>Last Updated: {stats['datetime']}</h3>
             </div>
         )
     }
