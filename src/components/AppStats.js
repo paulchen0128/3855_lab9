@@ -38,7 +38,7 @@ export default function AppStats() {
 							<th>Menus</th>
 							<th>Orders</th>
 						</tr>
-						<tr>
+						<tr>                        
 							<td># Menus: {stats["num_menus"]}</td>
 							<td># Orders: {stats["num_orders"]}</td>
 						</tr>
@@ -50,7 +50,7 @@ export default function AppStats() {
 						</tr>
 					</tbody>
                 </table>
-                <h3>Last Updated: {stats['datetime']}</h3>
+                <h3>Last Updated: {stats['last_updated']}</h3>
             </div>
         )
     }
